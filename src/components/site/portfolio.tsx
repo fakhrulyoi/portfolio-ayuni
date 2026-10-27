@@ -4,8 +4,9 @@ import { ClassicTemplate } from "./templates/classic";
 import { DocumentTemplate } from "./templates/document";
 import { PanelTemplate } from "./templates/panel";
 import { OrbitTemplate } from "./templates/orbit";
+import { StudioTemplate } from "./templates/studio";
 
-const RENDERERS = { orbit: OrbitTemplate, classic: ClassicTemplate, document: DocumentTemplate, panel: PanelTemplate } as const;
+const RENDERERS = { studio: StudioTemplate, orbit: OrbitTemplate, classic: ClassicTemplate, document: DocumentTemplate, panel: PanelTemplate } as const;
 
 /**
  * The public portfolio. Rendered by the public home page (published data)
@@ -24,7 +25,7 @@ export function Portfolio({
   contactDisabled?: boolean;
 }) {
   const id = data.settings.theme.template as TemplateId;
-  const Template = RENDERERS[TEMPLATES.includes(id) ? id : "orbit"];
+  const Template = RENDERERS[TEMPLATES.includes(id) ? id : "studio"];
   return (
     <Template
       data={data}

@@ -6,7 +6,30 @@ export function TemplateThumb({ id }: { id: string }) {
   const K = "var(--sunken)";
   const bar = (x: number, y: number, w: number, f = L, h = 4) => <rect x={x} y={y} width={w} height={h} rx={2} fill={f} />;
   let body: React.ReactNode;
-  if (id === "orbit") {
+  if (id === "studio") {
+    body = (
+      <>
+        <rect width="160" height="100" fill="#F4F7FC" />
+        <rect x="52" y="5" width="56" height="8" rx="4" fill="#FFFFFF" stroke="#DDE4F1" />
+        {bar(12, 30, 52, "#0F1B38", 7)}
+        {bar(12, 41, 40, "#0F1B38", 7)}
+        {bar(12, 54, 48)}
+        {bar(12, 60, 38)}
+        <rect x="12" y="70" width="26" height="8" rx="4" fill={A} />
+        <rect x="84" y="22" width="66" height="60" rx="6" fill="#FFFFFF" stroke="#DDE4F1" />
+        {[0, 1, 2, 3, 4, 5].map((r) =>
+          [0, 1, 2, 3, 4, 5, 6, 7].map((c) => <circle key={`${r}-${c}`} cx={90 + c * 8} cy={34 + r * 8} r=".6" fill="#C5D0E4" />),
+        )}
+        <rect x="96" y="36" width="36" height="24" rx="2" fill="#FFFFFF" stroke={A} />
+        <circle cx="103" cy="44" r="4" fill="#DCE6FD" />
+        {bar(110, 42, 16, "#0F1B38", 3)}
+        {bar(110, 47, 11, L, 2.5)}
+        <rect x="120" y="58" width="22" height="12" rx="2" fill="#D3E2FF" transform="rotate(-5 131 64)" />
+        <rect x="88" y="62" width="20" height="11" rx="2" fill="#D6EEFB" transform="rotate(4 98 67)" />
+        <path d="M134 50l5 2.5-2 .6-1 2z" fill={A} />
+      </>
+    );
+  } else if (id === "orbit") {
     body = (
       <>
         <rect width="160" height="100" fill="#050B1A" />

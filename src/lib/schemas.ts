@@ -87,7 +87,7 @@ export const seoSchema = z.object({
 });
 
 export const themeSchema = z.object({
-  template: z.enum(["orbit", "classic", "document", "panel"]),
+  template: z.enum(["studio", "orbit", "classic", "document", "panel"]),
   accent: hex,
   default_mode: z.enum(["light", "dark", "system"]),
   allow_toggle: z.boolean(),
@@ -167,7 +167,7 @@ export const DEFAULT_SETTINGS: Settings = {
   about: { summary: [], strengths: [], interests: [], languages: [], activities: [] },
   resume: { path: "", file_name: "", updated_at: "", show_preview: true },
   seo: { title: "", description: "", og_image_path: "" },
-  theme: { template: "orbit", accent: "#3B82F6", default_mode: "dark", allow_toggle: true },
+  theme: { template: "studio", accent: "#2F5BEA", default_mode: "light", allow_toggle: true },
   sections: { about: true, experience: true, projects: true, skills: true, education: true, resume: true, contact: true },
   contact: { intro: "", form_enabled: true },
 };

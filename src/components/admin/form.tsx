@@ -297,7 +297,7 @@ export function FieldControl({ field, values, setValue, errors }: { field: Exclu
           <input type="color" aria-label={`${field.label} picker`} value={/^#[0-9a-f]{6}$/i.test(String(v)) ? String(v) : "#3b82f6"} onChange={(e) => setValue(field.name, e.target.value)} className="h-10 w-14 cursor-pointer rounded-lg border border-line-strong bg-surface p-1" />
           <Input {...common} value={String(v ?? "")} onChange={(e) => setValue(field.name, e.target.value)} className="w-32 font-mono" maxLength={7} />
           <div className="flex gap-1.5">
-            {["#3B82F6", "#2450D8", "#0EA5E9", "#6366F1", "#0F766E"].map((c) => (
+            {["#2F5BEA", "#3B82F6", "#0EA5E9", "#6366F1", "#0F766E"].map((c) => (
               <button key={c} type="button" aria-label={`Use ${c}`} onClick={() => setValue(field.name, c)} className="size-7 rounded-full border border-line" style={{ background: c }} />
             ))}
           </div>
@@ -337,7 +337,7 @@ export function FieldControl({ field, values, setValue, errors }: { field: Exclu
     }
     case "choice":
       control = (
-        <div role="radiogroup" aria-labelledby={`${id}-label`} className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div role="radiogroup" aria-labelledby={`${id}-label`} className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {field.options.map((o) => {
             const checked = v === o.value;
             return (

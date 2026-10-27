@@ -7,7 +7,7 @@ export type IconType = React.ComponentType<{ className?: string; "aria-hidden"?:
 export type ContactLink = { href: string; label: string; icon: IconType; name: string };
 export type SectionId = "about" | "experience" | "projects" | "skills" | "education" | "resume" | "contact";
 
-export const TEMPLATES = ["orbit", "classic", "document", "panel"] as const;
+export const TEMPLATES = ["studio", "orbit", "classic", "document", "panel"] as const;
 export type TemplateId = (typeof TEMPLATES)[number];
 
 /** Props every template receives. */

@@ -59,7 +59,7 @@ update public.site_settings set data = $json$
     "description": "System Analyst in Malaysia with experience in requirements gathering, BRS/SRS/SDS documentation, business process modelling, Figma prototyping and UAT/FAT.",
     "og_image_path": ""
   },
-  "theme": { "template": "orbit", "accent": "#3B82F6", "default_mode": "dark", "allow_toggle": true },
+  "theme": { "template": "studio", "accent": "#2F5BEA", "default_mode": "light", "allow_toggle": true },
   "sections": { "about": true, "experience": true, "projects": true, "skills": true, "education": true, "resume": true, "contact": true },
   "contact": {
     "intro": "Hiring for a junior System Analyst role? Send a message and I'll reply by email.",

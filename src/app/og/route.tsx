@@ -11,7 +11,7 @@ export async function GET() {
   const name = s?.profile.full_name || "Portfolio";
   const title = s?.profile.title || "";
   const headline = s?.profile.headline || "";
-  const accent = s?.theme.accent || "#3B82F6";
+  const accent = s?.theme.accent || "#2F5BEA";
   const steps = (s?.profile.process_steps ?? []).slice(0, 6).map((x) => parseStep(x).label);
   return new ImageResponse(
     (

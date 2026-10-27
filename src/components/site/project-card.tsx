@@ -6,7 +6,7 @@ import { ProjectVisual } from "./project-visual";
 import type { Project } from "@/lib/schemas";
 import { storageUrl } from "@/lib/format";
 
-function Links({ p }: { p: Project }) {
+export function Links({ p }: { p: Project }) {
   const links = [
     p.live_url && { href: p.live_url, label: "Live site", icon: ExternalLink },
     p.repo_url && { href: p.repo_url, label: "Source code", icon: GithubIcon },
@@ -31,7 +31,7 @@ function Links({ p }: { p: Project }) {
   );
 }
 
-function Visual({ p, className }: { p: Project; className?: string }) {
+export function Visual({ p, className }: { p: Project; className?: string }) {
   return (
     <div className={`overflow-hidden bg-sunken ${className ?? ""}`}>
       {p.image_path ? (
@@ -52,7 +52,7 @@ function Visual({ p, className }: { p: Project; className?: string }) {
   );
 }
 
-function Tech({ items }: { items: string[] }) {
+export function Tech({ items }: { items: string[] }) {
   if (!items.length) return null;
   return (
     <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
@@ -103,47 +103,57 @@ export function ProjectCard({ p }: { p: Project }) {
         </div>
       </article>
       <DialogContent>
-        <Visual p={p} className="-mx-6 -mt-6 mb-6 aspect-[2/1] border-b border-line sm:rounded-t-2xl" />
-        {meta && <p className="text-[13px] text-muted">{meta}</p>}
-        <DialogTitle className="mt-1 text-xl font-semibold tracking-tight">{p.title}</DialogTitle>
-        <DialogDescription className="mt-2 text-[15px] leading-relaxed text-ink-2">{p.summary}</DialogDescription>
-        {p.role && (
-          <div className="mt-5">
-            <h4 className="text-sm font-semibold">My role</h4>
-            <p className="mt-1 text-[15px] text-ink-2">{p.role}</p>
-          </div>
-        )}
-        {p.contributions.length > 0 && (
-          <div className="mt-5">
-            <h4 className="text-sm font-semibold">What I did</h4>
-            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink-2 marker:text-line-strong">
-              {p.contributions.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {p.awards.length > 0 && (
-          <div className="mt-5">
-            <h4 className="text-sm font-semibold">Recognition</h4>
-            <ul className="mt-2 space-y-1 text-[15px] text-ink-2">
-              {p.awards.map((a) => (
-                <li key={a}>{a}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <div className="mt-6 space-y-4">
-          <Tech items={p.tech} />
-          <Links p={p} />
-        </div>
-        {p.confidential && (
-          <p className="mt-6 flex gap-2 rounded-lg bg-sunken p-3 text-[13px] leading-relaxed text-muted">
-            <Lock className="mt-0.5 size-3.5 shrink-0" aria-hidden />
-            Client work under confidentiality. Details are limited to my role, and the image is an illustration rather than a real screen.
-          </p>
-        )}
+        <ProjectDetails p={p} />
       </DialogContent>
     </Dialog>
+  );
+}
+
+/** Dialog body shared by every template's project card. */
+export function ProjectDetails({ p }: { p: Project }) {
+  const meta = [p.category, p.year].filter(Boolean).join(", ");
+  return (
+    <>
+    <Visual p={p} className="-mx-6 -mt-6 mb-6 aspect-[2/1] border-b border-line sm:rounded-t-2xl" />
+    {meta && <p className="text-[13px] text-muted">{meta}</p>}
+    <DialogTitle className="mt-1 text-xl font-semibold tracking-tight">{p.title}</DialogTitle>
+    <DialogDescription className="mt-2 text-[15px] leading-relaxed text-ink-2">{p.summary}</DialogDescription>
+    {p.role && (
+      <div className="mt-5">
+        <h4 className="text-sm font-semibold">My role</h4>
+        <p className="mt-1 text-[15px] text-ink-2">{p.role}</p>
+      </div>
+    )}
+    {p.contributions.length > 0 && (
+      <div className="mt-5">
+        <h4 className="text-sm font-semibold">What I did</h4>
+        <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink-2 marker:text-line-strong">
+          {p.contributions.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+    {p.awards.length > 0 && (
+      <div className="mt-5">
+        <h4 className="text-sm font-semibold">Recognition</h4>
+        <ul className="mt-2 space-y-1 text-[15px] text-ink-2">
+          {p.awards.map((a) => (
+            <li key={a}>{a}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+    <div className="mt-6 space-y-4">
+      <Tech items={p.tech} />
+      <Links p={p} />
+    </div>
+    {p.confidential && (
+      <p className="mt-6 flex gap-2 rounded-lg bg-sunken p-3 text-[13px] leading-relaxed text-muted">
+        <Lock className="mt-0.5 size-3.5 shrink-0" aria-hidden />
+        Client work under confidentiality. Details are limited to my role, and the image is an illustration rather than a real screen.
+      </p>
+    )}
+    </>
   );
 }

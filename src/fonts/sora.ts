@@ -7,5 +7,6 @@ export const sora = localFont({
   weight: "100 800",
   variable: "--font-sora",
   display: "swap",
+  preload: false,
   fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
 });

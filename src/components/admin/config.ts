@@ -201,7 +201,8 @@ export const SETTINGS_FIELDS: Partial<Record<SettingsSection, Field[]>> = {
       thumbs: true,
       help: "Changes the whole layout. Your content stays the same. Use Preview to compare before publishing.",
       options: [
-        { value: "orbit", label: "Orbit", description: "Futuristic blue: a live system map in the hero and glass panels." },
+        { value: "studio", label: "Studio", description: "Light and calm: a live design canvas in the hero, soft blue sections." },
+        { value: "orbit", label: "Orbit", description: "Dark and futuristic: a live system map in the hero and glass panels." },
         { value: "classic", label: "Classic", description: "Open layout with a process diagram and project cards." },
         { value: "document", label: "Document", description: "Specification-style sheet with numbered sections. Prints as a clean PDF." },
         { value: "panel", label: "Side panel", description: "Profile, links and resume always visible on the left." },

@@ -76,11 +76,12 @@ New installs that ran the current `setup.sql` already include these.
 
 ## 2. Templates
 
-Four layouts use the same content. Switch in **Site settings → Appearance → Template**, check with **Preview**, then **Publish**.
+Five layouts use the same content. Switch in **Site settings → Appearance → Template**, check with **Preview**, then **Publish**.
 
 | Template | Best for |
 | --- | --- |
-| **Orbit** (default) | Futuristic blue: a live system map of your tools behind the hero, a profile "HUD" card, glass panels. Dark by default, light mode included. |
+| **Studio** (default) | Light and calm: a live design canvas in the hero (a profile card being drawn, draggable sticky notes), a process flow that draws as you scroll, experience as tabs. |
+| **Orbit** | Futuristic blue: a live system map of your tools behind the hero, a profile "HUD" card, glass panels. Dark by default, light mode included. |
 | **Classic** | Open layout with a process diagram in the hero and project cards. |
 | **Document** | Specification-style sheet with numbered sections and a contents list. Visitors can print it or save it as a clean PDF. |
 | **Side panel** | Profile, contact links and resume button always visible in a dark panel on the left. |
